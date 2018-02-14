@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './book-logo.png';
 import book1 from './book1.jpg';
+import book2 from './book2.jpg';
 import './LibraryApp.css';
 
 class LibraryApp extends Component {
-  renderBook(aName) {
-    return <Book value={aName} name="33"/>;
+  renderBook(name, author, price, image) {
+    return <Book name={name} author={author} price={price} image={image}/>;
   }
 
   render() {
@@ -16,13 +17,15 @@ class LibraryApp extends Component {
           <h1 className="App-title">Welcome to Library</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Prototype Library demo add, edit search books.
         </p>
 
-       
-        {this.renderBook(1)}
 
-        {this.renderBook(2)}
+        {this.renderBook("Harry Potter", "J.K. Rowling", 20, book2 )}
+        
+        {this.renderBook("Hacking Secret Codes with Python", "Al Sweigart", 10, book1 )}
+        
+
       </div>
     );
   }
@@ -33,14 +36,18 @@ class Book extends Component {
     super(props);
     this.state = {
       name: null,
+      author: null,
+      price: 0,
+      image: null,
     };
   }
 
   render() {
     return (
       <a href='#'>
-      <img src={book1} width='158' height='158' alt='book1'/> 
-      <p>Brighton Bed {this.props.value} {this.props.name} <span class='price'>&pound;1157</span></p>
+      <img src={this.props.image} width='263' height='348' alt='book1'/> 
+      <p>{this.props.name} <span class='price'>&pound;{this.props.price}</span></p>
+      <p>{this.props.author}</p>
       </a>
     );
   }
