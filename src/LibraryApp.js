@@ -16,15 +16,19 @@ class LibraryApp extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Library</h1>
         </header>
+
         <p className="App-intro">
           Prototype Library demo add, edit search books.
         </p>
 
+        <p className="search">
+          search books:
+          <input type="text" name="txtSearch"/>
+        </p>
 
         {this.renderBook("Harry Potter", "J.K. Rowling", 20, book2 )}
         
         {this.renderBook("Hacking Secret Codes with Python", "Al Sweigart", 10, book1 )}
-        
 
       </div>
     );
